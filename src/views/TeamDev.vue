@@ -24,7 +24,7 @@
               src="../../public/DevPictures/Gerard-Macias.jpg" alt="Foto de Gerard Macias" />
             <h3 id="gerard-profile-heading" class="text-xl md:text-3xl font-bold mb-2">Gerard Macias</h3>
             <p class="text-md md:text-lg">
-              Desarrollador Full Stack con experiencia en múltiples tecnologías y enfoque en el aprendizaje continuo y la mejora profesional.
+              Desarrollador Full Stack con experiencia en diversas tecnologías y enfoque en la mejora continua.
             </p>
             <div class="flex items-center gap-4 mt-2">
               <a href="https://github.com/jerardmacias" target="_blank">
