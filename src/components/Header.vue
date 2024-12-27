@@ -21,11 +21,11 @@
         class="w-full md:w-[250px] flex flex-col justify-self-center rounded-2xl" role="article"
         aria-labelledby="game-title-{{ game.id }}">
         <div v-show="game"
-          class="rounded-[18px] border border-solid border-color-secondary bg-color-secondary group overflow-hidden">
+          class="rounded-[18px] p-8 md:p-0 order border-solid border-color-secondary bg-color-secondary group overflow-hidden">
           <router-link :to="`/game?id=${game.id}`">
-            <img class="rounded-t-2xl" :src="game.thumbnail" :alt="game.title" />
+            <img class="rounded-xl md:rounded-t-2xl my-6 md:my-0 m-auto md:m-0" :src="game.thumbnail" :alt="game.title" />
           </router-link>
-          <h2 id="game-title-{{ game.id }}" class="text-xl md:text-2xl font-bold mx-2 py-2">{{ game.title }}</h2>
+          <h2 id="game-title-{{ game.id }}" class="text-xl md:text-2xl font-bold mx-2 py-6 md:py-2">{{ game.title }}</h2>
           <p class="text-xs md:text-sm mt-[-6px] mb-3 mx-2">{{ game.genre }}</p>
           <p class="text-sm mx-2 mb-5">{{ game.short_description }}</p>
         </div>
