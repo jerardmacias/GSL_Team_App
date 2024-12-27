@@ -20,8 +20,7 @@
           <h2 id="profile-section-heading" class="sr-only">Perfiles de Desarrolladores</h2>
           <!-- Perfil Gerard -->
           <div class="flex flex-col items-center text-center p-6 rounded-lg shadow-lg border-2 custom-shadow" role="article" aria-labelledby="gerard-profile-heading">
-            <img class="w-[120px] md:w-[140px] rounded-full mb-6 shadow-lg object-cover"
-              src="../../public/DevPictures/gerard-macias.jpg" alt="Foto de Gerard Macias" />
+            <img class="w-[120px] md:w-[140px] rounded-full mb-6 shadow-lg object-cover" src="../../public/DevPictures/gerardmacias.jpg" alt="Foto de Gerard Macias" />
             <h3 id="gerard-profile-heading" class="text-xl md:text-3xl font-bold mb-2">Gerard Macias</h3>
             <p class="text-md md:text-lg">
               Desarrollador Full Stack con experiencia en diversas tecnologías y enfoque en la mejora continua.
@@ -39,7 +38,7 @@
           <!-- Perfil Sébastien -->
           <div class="flex flex-col items-center text-center p-6 rounded-lg shadow-lg border-2 custom-shadow" role="article" aria-labelledby="sebastien-profile-heading">
             <img class="w-[120px] md:w-[140px] rounded-full mb-6 shadow-lg object-cover"
-              src="../../public/DevPictures/sebastien-leger.png" alt="Foto de Sébastien Léger" />
+              src="../../public/DevPictures/sebastien-leger.jpg" alt="Foto de Sébastien Léger" />
             <h3 id="sebastien-profile-heading" class="text-xl md:text-3xl font-bold mb-2">Sébastien Léger</h3>
             <p class="text-md md:text-lg">
               Desarrollador front-end apasionado por la tecnología y el diseño, con el objetivo de alcanzar la maestría en el área.
