@@ -5,7 +5,7 @@
   ]" role="navigation" aria-label="Main Navigation">
     <div class="flex items-center justify-between">
       <!-- Logo -->
-      <router-link to="/" aria-label="Go to homepage">
+      <router-link to="/" aria-label="Go to homepage" @click.native="scrollToTop">
         <img class="w-28 h-9" src="../assets/logo_gsl.png" alt="GSL Game App Logo" />
       </router-link>
 
@@ -25,7 +25,7 @@
             @mouseover="showPlatform = true" @mouseleave="showPlatform = false" role="menu" aria-label="Platform Menu">
             <router-link v-for="platform in apiStore.platforms" :key="platform"
               :to="`/platform/${formatToUrl(platform)}`" class="whitespace-nowrap hover:bg-gray-500 p-1" role="menuitem"
-              @click="closeMenus">
+              @click="scrollToTopAndCloseMenus">
               {{ platform }}
             </router-link>
           </div>
@@ -45,17 +45,18 @@
             @mouseover="showCategory = true" @mouseleave="showCategory = false" role="menu" aria-label="Category Menu">
             <router-link v-for="category in apiStore.categories" :key="category"
               :to="`/category/${formatToUrl(category)}`" class="whitespace-nowrap hover:bg-gray-500 p-1" role="menuitem"
-              @click="closeMenus">
+              @click="scrollToTopAndCloseMenus">
               {{ category }}
             </router-link>
           </div>
         </div>
 
-        <router-link to="/team-dev" role="menuitem" @click="closeMenus">Team Dev</router-link>
+        <router-link to="/team-dev" role="menuitem" @click="scrollToTopAndCloseMenus">Team Dev</router-link>
       </nav>
 
       <!-- Search & GitHub -->
       <div class="hidden lg:flex space-x-6 items-center">
+        <!-- Search Bar -->
         <div class="relative">
           <input type="search" autocomplete="off" v-model="searchQuery" @input="onSearch"
             @keyup.enter="navigateToFirstSuggestion" placeholder="Find a game" id="search"
@@ -93,7 +94,7 @@
     <!-- Mobile Menu -->
     <nav v-if="isMobileMenuOpen" class="lg:hidden bg-color-secondary py-4 space-y-4 text-slate-200"
       aria-label="Mobile Navigation">
-      <router-link to="/" class="block px-4" @click="closeMenus">Home</router-link>
+      <router-link to="/" class="block px-4" @click="scrollToTopAndCloseMenus">Home</router-link>
       <div>
         <button @click="mobilePlatformOpen = !mobilePlatformOpen" class="flex items-center w-full px-4">
           Plataforma
@@ -104,7 +105,7 @@
         </button>
         <div v-if="mobilePlatformOpen" class="pl-6 space-y-2">
           <router-link v-for="platform in apiStore.platforms" :key="platform" :to="`/platform/${formatToUrl(platform)}`"
-            class="block whitespace-nowrap hover:bg-gray-500 p-1" @click="closeMenus">
+            class="block whitespace-nowrap hover:bg-gray-500 p-1" @click="scrollToTopAndCloseMenus">
             {{ platform }}
           </router-link>
         </div>
@@ -120,12 +121,12 @@
         <div v-if="mobileCategoryOpen" class="pl-6 space-y-2">
           <router-link v-for="category in apiStore.categories" :key="category"
             :to="`/category/${formatToUrl(category)}`" class="block whitespace-nowrap hover:bg-gray-500 p-1"
-            @click="closeMenus">
+            @click="scrollToTopAndCloseMenus">
             {{ category }}
           </router-link>
         </div>
       </div>
-      <router-link to="/team-dev" class="block px-4" @click="closeMenus">Team Dev</router-link>
+      <router-link to="/team-dev" class="block px-4" @click="scrollToTopAndCloseMenus">Team Dev</router-link>
     </nav>
   </section>
 </template>
@@ -167,15 +168,20 @@ export default {
       }
       this.suggestions = this.apiStore.games
         .map((game) => game.title)
-        .filter((name) => name.toLowerCase().includes(this.searchQuery.toLowerCase()));
+        .filter((name) =>
+          name.toLowerCase().includes(this.searchQuery.toLowerCase())
+        );
     },
     navigateToGame(name) {
-      const selectedGame = this.apiStore.games.find((game) => game.title === name);
+      const selectedGame = this.apiStore.games.find(
+        (game) => game.title === name
+      );
       if (selectedGame) {
         this.$router.push(`/game?id=${selectedGame.id}`);
       }
       this.searchQuery = "";
       this.suggestions = [];
+      this.scrollToTop();
     },
     navigateToFirstSuggestion() {
       if (this.suggestions.length > 0) {
@@ -183,7 +189,10 @@ export default {
       }
     },
     formatToUrl(text) {
-      return text.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9\-]/g, "");
+      return text
+        .toLowerCase()
+        .replace(/\s+/g, "-")
+        .replace(/[^a-z0-9\-]/g, "");
     },
     closeMenus() {
       this.showPlatform = false;
@@ -192,14 +201,16 @@ export default {
       this.mobilePlatformOpen = false;
       this.mobileCategoryOpen = false;
     },
+    scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    },
+    scrollToTopAndCloseMenus() {
+      this.scrollToTop();
+      this.closeMenus();
+    },
   },
 };
 </script>
-
-<style scoped>
-section {
-  color: #fff;
-  font-weight: 600;
-  transition: background-color 0.3s, backdrop-filter 0.3s;
-}
-</style>
