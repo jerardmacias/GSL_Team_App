@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply font-museomoderno;
+}
+h1 ,h2, h3, .button, .title{
+  @apply font-jaro;
+}
+.bg-gradient {
+  background: var(
+    --Gradiente-Radial,
+    radial-gradient(
+      270.17% 139.44% at 99.27% 1%,
+      #483c9e 0%,
+      #68088b 31.27%,
+      #bc168d 65.27%,
+      #000 99.77%
+    )
+  );
+}
+
+.custom-shadow {
+  @apply shadow-none;
+  /* Remueve cualquier sombra predefinida */
+  box-shadow: 0 0 0.2rem #fff,
+      0 0 0.2rem #fff,
+      0 0 2rem #bc13fe,
+      0 0 0.8rem #bc13fe,
+      0 0 2.8rem #bc13fe,
+      inset 0 0 1.3rem #bc13fe;
+}
+
+
+.text-shadow {
+  text-shadow:
+      0 0 7px #ff6600,
+      0 0 10px #ff6600,
+      0 0 21px #ff6600,
+      0 0 42px #5271ff,
+      0 0 82px #5271ff,
+      0 0 92px #5271ff,
+      0 0 102px #5271ff,
+      0 0 151px #5271ff;
+}
+
+.neonText {
+  color: #fff;
+  text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #5271ff,
+      0 0 82px #5271ff,
+      0 0 92px #5271ff,
+      0 0 102px #5271ff,
+      0 0 151px #5271ff;
+}
+
+.neonText2 {
+  color: #fff;
+  text-shadow:
+    0 0 2px #fff,
+    0 0 42px #bc13fe,
+    0 0 82px #bc13fe,
+    0 0 92px #bc13fe,
+    0 0 102px #bc13fe,
+    0 0 151px #bc13fe;
+}
+
+.neonText3 {
+  color: #68088b;
+  text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #bc13fe,
+    0 0 82px #bc13fe,
+    0 0 92px #bc13fe,
+    0 0 102px #bc13fe,
+    0 0 151px #bc13fe;
+}
+
+.neonText4 {
+  color: #c5170f;
+  text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #c5170f,
+      0 0 62px #c5170f,
+      0 0 70px #c5170f,
+      0 0 80px #c5170f,
+      0 0 120px #c5170f;
+}
+
+.neonText5 {
+  color: #6CDAFB;
+  text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #5271ff,
+      0 0 82px #5271ff,
+      0 0 92px #5271ff,
+      0 0 102px #5271ff,
+      0 0 151px #5271ff;
+}
+
+.neonText6 {
+  color: #ff6600;
+  text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #5271ff,
+      0 0 82px #5271ff,
+      0 0 92px #5271ff,
+      0 0 102px #5271ff,
+      0 0 151px #5271ff;
+}
